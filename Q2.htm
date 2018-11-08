@@ -28,10 +28,37 @@
             text-align: left;
         }
 
+        #rocks {
+            color: red;
+            font-size: 2em;
+            font-family: "Lucida Handwriting";
+            background: yellow;
+            visibility: hidden;
+        }
+
+        #sucks {
+            color: green;
+            font-weight: bold;
+            font-size: 2em;
+            background: blue;
+            font-family: Arial;
+            visibility: hidden;
+        }
+
     </style>
 
     <script type="text/javascript">
-
+    function face(x){
+        const s = document.getElementById('sucks');
+        const r = document.getElementById('rocks');
+        if (x === 'rocks') {
+          r.style.visibility = 'visible';
+          s.style.visibility = 'hidden';
+        } else {
+          r.style.visibility = 'hidden';
+          s.style.visibility = 'visible';
+        }
+    }
     </script>
 </head>
 
@@ -49,12 +76,12 @@
 
     <table>
         <tr>
-            <td><img src="smiley.jpg" alt="Smiling Face" title="Smile"></td>
-            <td>Web Tech Rocks!</td>
+            <td ><img src="smiley.jpg" alt="Smiling Face" title="Smile" onclick="face('rocks')"></td>
+            <td id="rocks">Web Tech Rocks!</td>
         </tr>
         <tr>
-            <td><img src="frown.jpg" alt="Frown Face" title="Sad"></td>
-            <td>Web Tech Sucks!</td>
+            <td><img src="frown.jpg" alt="Frown Face" title="Sad" onclick="face('sucks')"></td>
+            <td id="sucks">Web Tech Sucks!</td>
         </tr>
 
     </table>

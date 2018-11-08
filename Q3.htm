@@ -30,6 +30,23 @@
             text-align: left;
         }
     </style>
+    <script type="text/javascript">
+    function cal(){
+        let f = document.getElementById("form");
+        let x = f.from.value;
+        let y = f.to.value;
+        if (x == "" || y == "" || isNaN(x) || isNaN(y)) {
+                alert("You should enter two integers.");
+            }
+        else{
+            let result = 0;
+                for (let i = parseInt(x); i <= parseInt(y); i++){
+                    result = result + i;}
+        }
+        document.getElementById("result").innerHTML = result;
+        return false;
+    }
+    </script>
 </head>
 
 <body>
@@ -39,17 +56,16 @@
         two text inputs. When Calculate button is clicked, the <b style="color:red;">product</b> of <b>all</b> the
         integers between these two numbers (inclusive) will be calculated and displayed. (10 points)
         For full points, you need to validate the inputs properly. (5 points)
-
     </p>
-    <form>
+    <form id="form">
         <p>
             From: <input type="text" name="from" size="10"/> To: <input type="text" name="to" size="10">
         </p>
         <p>
-            <input type="submit" name="calc" value="Calculate">
+            <input onclick="cal()" type="submit" name="calc" value="Calculate">
             <input type="reset" name="reset" value="CLEAR">
         </p>
-        <p>The product is .</p>
+        <p>The product is<span id="result"></span>.</p>
     </form>
 
 </body>
